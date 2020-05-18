@@ -48,6 +48,8 @@ function draw(){
         paddle.move('left');
       }else if (keyIsDown(RIGHT_ARROW)) {
         paddle.move('right');
+      } else if (keyIsDown(RETURN) && gameState == "Game Over"){
+          setup();
       }
 
    
@@ -77,7 +79,7 @@ function draw(){
       text(`Score:${playerScore}`, width - 150, 50);
 
       if(ball.belowBottom()){
-        gameState = 'TRY AGAIN..';
+        gameState = 'Game Over';
       }
 
       if(bricks.length === 0){
@@ -87,7 +89,7 @@ function draw(){
       
     }else{
       textSize(80);
-       gameState === 'TRY AGAIN..' ? fill(255, 0, 0) : fill(255);
+       gameState === 'Game Over' ? fill(255, 0, 0) : fill(255);
        text(`${gameState}`, width / 2 - 200, height / 2);
     }
       
